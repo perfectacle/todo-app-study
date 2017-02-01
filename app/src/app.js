@@ -4,8 +4,9 @@ if (process.env.NODE_ENV !== 'production') { // 개발용 버전에서만 HTML �
 import './style.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Test from './test';
 
 ReactDOM.render(
-  (<h1>Hello, World!</h1>),
-  document.querySelector('#root')
+  (<Test/>),
+  document.getElementById('app')
 );
