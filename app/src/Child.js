@@ -2,11 +2,14 @@ import React from 'react';
 
 export default class Child extends React.Component {
   render() {
-    const {name, age} = this.props;
+    const {name, age, show, handleClick} = this.props;
     return(
-      <div>
-        나의 이름은 {name}, 나이는 {age}야!
-      </div>
+      <li>
+        <span onClick={handleClick}>{name}</span>{/*
+        */}<span style={{
+          display: show ? 'inline' : 'none'
+        }}>{age}세</span>
+      </li>
     );
   }
 }
