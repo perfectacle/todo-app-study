@@ -5,47 +5,39 @@ export default class Parent extends Component {
   constructor() {
     super();
     this.state = {
-      people: [{
-        name: null,
-        age: 25,
-        show: false
-      }, {
-        name: '김반장',
-        age: 44,
-        show: false
-      }, {
-        name: '오팀장',
-        age: 49,
-        show: false
-      }]
-    }
+      list: [0]
+    };
+    this.addChild = this.addChild.bind(this);
+    this.removeChild = this.removeChild.bind(this);
   }
 
-  handleClick(i) {
-    this.state.people[i].show = !this.state.people[i].show;
+  addChild() {
+    const nextList = [...this.state.list];
+    nextList.push(nextList.length);
     this.setState({
-      people: this.state.people
+      list: nextList
+    });
+  }
+
+  removeChild() {
+    const nextList = [...this.state.list];
+    nextList.pop();
+    this.setState({
+      list: nextList
     });
   }
 
   render() {
-    /*const people = this.state.people.map((v, i) => (
-      <Child name={people[i].name}
-             age={people[i].age}
-             show={people[i].show}
-             handleClick={() => this.handleClick(i)} />
-    ));*/
-    const people = this.state.people.map((v, i) => (
-      <Child
-        key={i}
-        handleClick={() => this.handleClick(i)}
-             {...v} />
-    ));
+    if(!this.state.list.length) return (
+      <button onClick={this.addChild}>자식 추가</button>
+    );
 
     return(
-      <ul>
-        {people}
-      </ul>
+      <div>
+        <Child list={this.state.list} />
+        <button onClick={this.addChild}>자식 추가</button>
+        <button onClick={this.removeChild}>자식 삭제</button>
+      </div>
     );
   }
 }
