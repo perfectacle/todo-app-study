@@ -14,6 +14,7 @@ module.exports = {
     `${ROOT}/app`
   ],
   output: {
+    publicPath: '/',
     filename: 'app.bundle.js',
   },
   plugins: [
@@ -46,6 +47,7 @@ module.exports = {
     contentBase: ROOT,
     port: PORT,
     hot: true,
-    inline: true
+    inline: true,
+    historyApiFallback: true
   }
 };
