@@ -1,6 +1,10 @@
-import React from 'react';
+import React, {Component, PropTypes} from 'react';
 
-export default class Child extends React.Component {
+export default class Child extends Component {
+  static propTypes = {
+    name: PropTypes.string.isRequired
+  };
+
   render() {
     const {name, age, show, handleClick} = this.props;
     return(
@@ -13,8 +17,3 @@ export default class Child extends React.Component {
     );
   }
 }
-
-Child.defaultProps = {
-  name: '야야야야',
-  age: 999292929
-};

@@ -1,12 +1,12 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Child from './Child';
 
-export default class Parent extends React.Component {
+export default class Parent extends Component {
   constructor() {
     super();
     this.state = {
       people: [{
-        name: '양간장',
+        name: null,
         age: 25,
         show: false
       }, {
