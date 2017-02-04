@@ -5,10 +5,10 @@ export default class Child extends React.Component {
     const {name, age, show, handleClick} = this.props;
     return(
       <li>
-        <span onClick={handleClick}>{name}</span>{/*
-        */}<span style={{
+        <span onClick={handleClick}>{name}</span>
+        <span style={{
           display: show ? 'inline' : 'none'
-        }}>{age}세</span>
+        }}> {age}세</span>
       </li>
     );
   }

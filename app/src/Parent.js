@@ -29,21 +29,22 @@ export default class Parent extends React.Component {
   }
 
   render() {
-    const people = this.state.people;
+    /*const people = this.state.people.map((v, i) => (
+      <Child name={people[i].name}
+             age={people[i].age}
+             show={people[i].show}
+             handleClick={() => this.handleClick(i)} />
+    ));*/
+    const people = this.state.people.map((v, i) => (
+      <Child
+        key={i}
+        handleClick={() => this.handleClick(i)}
+             {...v} />
+    ));
+
     return(
       <ul>
-        <Child name={people[0].name}
-               age={people[0].age}
-               show={people[0].show}
-               handleClick={() => this.handleClick(0)} />
-        <Child name={people[1].name}
-               age={people[1].age}
-               show={people[1].show}
-               handleClick={() => this.handleClick(1)} />
-        <Child name={people[2].name}
-               age={people[2].age}
-               show={people[2].show}
-               handleClick={() => this.handleClick(2)} />
+        {people}
       </ul>
     );
   }
