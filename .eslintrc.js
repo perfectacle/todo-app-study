@@ -1,23 +1,24 @@
 module.exports = {
-  "env"          : {
-    "browser" : true,
-    "node"    : true,
+  "env": {
+    "browser": true,
+    "node": true,
     "commonjs": true,
-    "es6"     : true
+    "es6": true
   },
-  "extends"      : "eslint:recommended",
+  "extends": "eslint:recommended",
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
-      "jsx"                         : true
+      "jsx": true
     },
-    "sourceType"  : "module"
+    "sourceType": "module"
   },
-  "plugins"      : [
+  "plugins": [
     "react"
   ],
-  "rules"        : {
-    "indent"         : [
+  "rules": {
+    "indent": [
       "error",
       2
     ],
@@ -25,15 +26,18 @@ module.exports = {
       "error",
       "unix"
     ],
-    "quotes"         : [
+    "quotes": [
       "error",
       "single"
     ],
-    "semi"           : [
+    "semi": [
       "error",
       "always"
     ],
-    "no-undef"       : [
+    "no-unused-vars": [
+      "warn"
+    ],
+    "no-console": [
       "warn"
     ],
     "react/jsx-uses-react": "error",

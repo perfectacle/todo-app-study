@@ -10,7 +10,8 @@ export default class Todo extends Component {
     editTodo: PropTypes.func.isRequired,
     changeTodo: PropTypes.func.isRequired,
     saveTodo: PropTypes.func.isRequired,
-    toggleTodo: PropTypes.func.isRequired
+    toggleTodo: PropTypes.func.isRequired,
+    delTodo: PropTypes.func.isRequired
   };
 
   componentDidUpdate() {
@@ -31,21 +32,20 @@ export default class Todo extends Component {
   }
 
   render() {
-    const {id, txt, isCompleted, idEdit, toggleTodo} = this.props;
-    return(
+    const {id, txt, isCompleted, idEdit, toggleTodo, delTodo} = this.props;
+    return (
       <li className={
         ClassNames({
           editing: idEdit === id,
           completed: isCompleted
-        })
-      }>
+        })}>
         <div className="view">
-          <input className="toggle" type="checkbox" onClick={() => toggleTodo(id)}/>
+          <input className="toggle" type="checkbox" checked={isCompleted} onChange={() => toggleTodo(id)}/>
           <label onDoubleClick={() => this.handleEditTodo(id, txt)}>{txt}</label>
-          <button className="destroy"></button>
+          <button className="destroy" onClick={() => delTodo(id)}></button>
         </div>
         <input className="edit" value={txt}
-               ref={ref => {this.txtEdit = ref}}
+               ref={ref => this.txtEdit = ref}
                onChange={(e) => this.handleChangeTodo(e, id)}
                onKeyPress={(e) => this.handleSaveTodo(e)}/>
       </li>

@@ -13,11 +13,11 @@ export default class Header extends Component {
   }
 
   render() {
-    return(
+    return (
       <header className="header">
         <h1>todos</h1>
         <input className="new-todo" placeholder="What needs to be done?"
-               ref={ ref => { this.txtTodo = ref }}
+               ref={ref => this.txtTodo = ref}
                onKeyPress={e => this.pressEnter(e)}/>
       </header>
     );
