@@ -19,10 +19,12 @@ class Todos extends Component {
   };
 
   render() {
-    const {todos, toggleAllTodo} = this.props;
-    const todoList = todos.map(v => (
-      <Todo key={v.id} {...v} />
-    ));
+    const {todos, toggleAllTodo, filter} = this.props;
+    const todoList = todos.map(v => {
+      if(filter === 'active' && v.isCompleted) return;
+      if(filter === 'completed' && !v.isCompleted) return;
+      return (<Todo key={v.id} {...v}/>);
+    });
     return (
       <section className="main">
         <input className="toggle-all" type="checkbox" onChange={toggleAllTodo}/>

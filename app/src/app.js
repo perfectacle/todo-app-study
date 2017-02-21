@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
+import { Router, Route, browserHistory } from 'react-router'
 
 import store from './store';
 import Container from './containers/Container';
@@ -12,7 +13,9 @@ import './style.css';
 
 render(
   <Provider store={store}>
-    <Container/>
+    <Router history={browserHistory}>
+      <Route path="/(:filter)" component={Container}/>
+    </Router>
   </Provider>
   ,document.getElementById('app')
 );

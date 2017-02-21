@@ -1,5 +1,6 @@
 'use strict';
 import React, {Component, PropTypes} from 'react';
+import { Link } from 'react-router';
 import {connect} from 'react-redux';
 import ClassNames from 'classnames';
 
@@ -17,11 +18,12 @@ class Footer extends Component {
   static propTypes = {
     cntActivated: PropTypes.number.isRequired,
     cntCompleted: PropTypes.number.isRequired,
-    delCompletedTodos: PropTypes.func.isRequired
+    delCompletedTodos: PropTypes.func.isRequired,
+    filter: PropTypes.string.isRequired
   };
 
   render() {
-    const {cntActivated, cntCompleted, delCompletedTodos} = this.props;
+    const {cntActivated, cntCompleted, delCompletedTodos, filter} = this.props;
     return (
       <footer className="footer">
         <span className="todo-count">
@@ -29,13 +31,22 @@ class Footer extends Component {
         </span>
         <ul className="filters">
           <li>
-            <a>All</a>
+            <Link className={
+              ClassNames({
+                selected: filter === 'all'
+              })} to="/">All</Link>
           </li>
           <li>
-            <a>Active</a>
+            <Link className={
+              ClassNames({
+                selected: filter === 'active'
+              })} to="/active">Active</Link>
           </li>
           <li>
-            <a>Completed</a>
+            <Link className={
+              ClassNames({
+                selected: filter === 'completed'
+              })} to="/completed">Completed</Link>
           </li>
         </ul>
         <button className={
