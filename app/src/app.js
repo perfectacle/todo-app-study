@@ -1,6 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Container from './Container';
+import { Provider } from 'react-redux';
+
+import store from './store';
+import Container from './containers/Container';
 
 if (process.env.NODE_ENV !== 'production') { // HTML 핫리로드
   require('./index.html');
@@ -8,6 +11,8 @@ if (process.env.NODE_ENV !== 'production') { // HTML 핫리로드
 import './style.css';
 
 render(
-  <Container />
+  <Provider store={store}>
+    <Container/>
+  </Provider>
   ,document.getElementById('app')
 );
