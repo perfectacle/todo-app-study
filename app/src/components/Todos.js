@@ -12,7 +12,8 @@ const mapDispatchToProps = dispatch => ({
   toggleAllTodo: () => dispatch(TodoAction.toggleAllTodo())
 });
 
-class Todos extends Component {
+@connect(mapStateToProps, mapDispatchToProps)
+export default class Todos extends Component {
   static propTypes = {
     todos: PropTypes.array.isRequired,
     toggleAllTodo: PropTypes.func.isRequired
@@ -35,5 +36,3 @@ class Todos extends Component {
     );
   }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(Todos);
