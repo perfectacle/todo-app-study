@@ -17,7 +17,8 @@ const mapDispatchToProps = dispatch => ({
   delTodo: id => dispatch(TodoAction.delTodo(id))
 });
 
-class Todo extends Component {
+@connect(mapStateToProps, mapDispatchToProps)
+export default class Todo extends Component {
   static propTypes = {
     id: PropTypes.number.isRequired,
     txt: PropTypes.string.isRequired,
@@ -61,5 +62,3 @@ class Todo extends Component {
     );
   }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(Todo);

@@ -14,7 +14,8 @@ const mapDispatchToProps = dispatch => ({
   delCompletedTodos: () => dispatch(TodoAction.delCompletedTodos())
 });
 
-class Footer extends Component {
+@connect(mapStateToProps, mapDispatchToProps)
+export default class Footer extends Component {
   static propTypes = {
     cntActivated: PropTypes.number.isRequired,
     cntCompleted: PropTypes.number.isRequired,
@@ -57,5 +58,3 @@ class Footer extends Component {
     );
   }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(Footer);

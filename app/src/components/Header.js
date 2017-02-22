@@ -8,7 +8,8 @@ const mapDispatchToProps = dispatch => ({
   addTodo: txt => dispatch(TodoAction.addTodo(txt))
 });
 
-class Header extends Component {
+@connect(null, mapDispatchToProps)
+export default class Header extends Component {
   static propTypes = {
     addTodo: PropTypes.func.isRequired
   };
@@ -34,5 +35,3 @@ class Header extends Component {
     );
   }
 }
-
-export default connect(null, mapDispatchToProps)(Header);

@@ -9,7 +9,6 @@ const initialState = {
     txt: '피자 먹기',
     isCompleted: false
   }],
-  filter: 'All',
   idEdit: 0,
   txtEditOrigin: ''
 };

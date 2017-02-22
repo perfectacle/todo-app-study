@@ -6,7 +6,7 @@ import Header from '../components/Header';
 import Todos from '../components/Todos';
 import Footer from '../components/Footer';
 
-class Container extends Component {
+export default class Container extends Component {
   componentWillMount() {
     const filter = this.props.routeParams.filter || 'all';
     const arrFilter = ['all', 'active', 'completed'];
@@ -24,5 +24,3 @@ class Container extends Component {
     );
   }
 }
-
-export default Container;
